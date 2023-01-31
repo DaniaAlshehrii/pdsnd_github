@@ -186,20 +186,14 @@ def user_stats(df):
     try:
       earliest = int(df['Birth Year'].min())
       print("The earliest year of birth is: ", earliest)
-    except KeyError:
-      print("\nThere is no Year for earliest year ")
-
-    try:
       most_recent = int(df['Birth Year'].max())
       print("\nMost recent year is: ", most_recent)
-    except KeyError:
-      print("\nThere is no Year for recent year")
-
-    try:
-     most_common = int(df['Birth Year'].value_counts().idxmax())
-     print("\n The most common year is: ", most_common)
-    except KeyError:
-      print("\nThere is no Year for common year")
+      most_common = int(df['Birth Year'].value_counts().idxmax())
+      print("\n The most common year is: ", most_common)
+   except KeyError:
+     print("\nThere is no Year for earliest year ")
+     print("\nThere is no Year for recent year")
+     print("\nThere is no Year for common year")
 
 
     print("\nThis took %s seconds." % (time.time() - start_time))
